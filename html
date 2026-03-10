@@ -1,0 +1,55 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Intelligent Attendance Analytics</title>
+<link rel="stylesheet" href="fwd.css">
+<script src="fwd.js "></script>
+</head>
+
+<body>
+
+<h1>Intelligent Attendance Analytics System</h1>
+
+<div class="container">
+
+<h2>Add Student Attendance</h2>
+
+<input type="text" id="name" placeholder="Enter Student Name">
+
+<select id="status">
+<option value="Present">Present</option>
+<option value="Absent">Absent</option>
+</select>
+
+<button onclick="markAttendance()">Mark Attendance</button>
+
+</div>
+
+<div class="container">
+
+<h2>Attendance Records</h2>
+
+<table id="table">
+<tr>
+<th>Name</th>
+<th>Status</th>
+</tr>
+</table>
+
+</div>
+
+<div class="container">
+
+<h2>Attendance Analytics</h2>
+
+<p>Total Students: <span id="total">0</span></p>
+<p>Present: <span id="present">0</span></p>
+<p>Absent: <span id="absent">0</span></p>
+<p>Attendance Percentage: <span id="percentage">0%</span></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
