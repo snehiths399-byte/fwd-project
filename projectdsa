@@ -1,0 +1,94 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student {
+    String name;
+    String status;
+
+    Student(String name, String status) {
+        this.name = name;
+        this.status = status;
+    }
+}
+
+public class project {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Student> records = new ArrayList<>();
+
+        int present = 0;
+        int absent = 0;
+
+        while (true) {
+
+            System.out.println("\n=== Intelligent Attendance Analytics System ===");
+            System.out.println("1. Add Student Attendance");
+            System.out.println("2. View Attendance Records");
+            System.out.println("3. View Attendance Analytics");
+            System.out.println("4. Exit");
+
+            System.out.print("Enter Choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    System.out.print("Enter Student Name: ");
+                    String name = sc.nextLine();
+
+                    System.out.print("Enter Status (Present/Absent): ");
+                    String status = sc.nextLine();
+
+                    Student s = new Student(name, status);
+                    records.add(s);
+
+                    if (status.equalsIgnoreCase("Present")) {
+                        present++;
+                    } else {
+                        absent++;
+                    }
+
+                    System.out.println("Attendance Added Successfully!");
+                    break;
+
+                case 2:
+
+                    System.out.println("\nAttendance Records:");
+
+                    for (Student st : records) {
+                        System.out.println("Name: " + st.name + " | Status: " + st.status);
+                    }
+
+                    break;
+
+                case 3:
+
+                    int total = records.size();
+                    double percentage = 0;
+
+                    if (total > 0) {
+                        percentage = (present * 100.0) / total;
+                    }
+
+                    System.out.println("\nAttendance Analytics");
+                    System.out.println("Total Students: " + total);
+                    System.out.println("Present: " + present);
+                    System.out.println("Absent: " + absent);
+                    System.out.println("Attendance Percentage: " + percentage + "%");
+
+                    break;
+
+                case 4:
+                    System.out.println("Exiting System...");
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}
